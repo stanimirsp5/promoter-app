@@ -6,8 +6,8 @@ import AboutComponent from './aboutus.vue';
 new Vue({
     el: "#app",
     components: {
-        HomeComponent,
-        ContactComponent,
-        AboutComponent
+        "home-component-home":HomeComponent,
+        "contact-component":ContactComponent,
+        "about-component":AboutComponent
     }
 })
