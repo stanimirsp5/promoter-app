@@ -1,11 +1,10 @@
 <template>
     <div id="contact">
-        <h1>Contact hhehe-test Vue</h1>
+        <h1>Contacts</h1>
     </div>
-
 </template>
 <script>
     export default {
-        name: "contact-component"
-    };
+        name: "home-contacts"  
+    }
 </script>

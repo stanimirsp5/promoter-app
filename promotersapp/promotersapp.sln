@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "promotersapp", "promotersapp.csproj", "{31B1F2FF-7C4B-49AC-8566-126A3661BEAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31B1F2FF-7C4B-49AC-8566-126A3661BEAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31B1F2FF-7C4B-49AC-8566-126A3661BEAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31B1F2FF-7C4B-49AC-8566-126A3661BEAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31B1F2FF-7C4B-49AC-8566-126A3661BEAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

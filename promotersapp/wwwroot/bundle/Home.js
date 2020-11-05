@@ -12644,7 +12644,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "home"
     }
-  }, [_c('h1', [_vm._v("Vue")]), _vm._v(" "), _c('h1', [_vm._v("Home test Vue")]), _vm._v(" "), _c('h1', [_vm._v("Home Vue")])])
+  }, [_c('h1', [_vm._v("Vue")]), _vm._v(" "), _c('h1', [_vm._v("test Vue")]), _vm._v(" "), _c('h1', [_vm._v("Home Vue")])])
 }]}
 if (false) {
   module.hot.accept()
@@ -12726,7 +12726,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "contact"
     }
-  }, [_c('h1', [_vm._v("Contact us resr- Vue")])])
+  }, [_c('h1', [_vm._v("Contact hhehe-test Vue")])])
 }]}
 if (false) {
   module.hot.accept()
