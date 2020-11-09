@@ -65,11 +65,28 @@ module.exports = {
         query: {
           name: '[name].[ext]?[hash]'
         }
-      }
+      },
+    {
+        test: /\.s(c|a)ss$/,
+        use: [
+            'vue-style-loader',
+            'css-loader',
+            {
+                loader: 'sass-loader',
+                options: {
+                    implementation: require('sass'),
+                    sassOptions: {
+                        indentedSyntax: true // optional
+                    },
+                },
+            },
+        ],
+    },
     ]
   },
   devtool: '#source-map', //'#eval-source-map'
 }
+
 module.exports.watch = process.env.WATCH === "true";
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'

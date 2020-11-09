@@ -1,13 +1,22 @@
 ﻿import Vue from 'vue';
+import vuetify from '../plugins/vuetify'
+
 import HomeComponent from './home.vue';
 import ContactComponent from './contactus.vue';
 import AboutComponent from './aboutus.vue';
 
+const opts = {}
+
+
 new Vue({
-    el: "#app",
+    vuetify,
+    //el: "#app",
+    data: {
+        message: "Test Vue test"
+    },
     components: {
         "home-component-home":HomeComponent,
         "contact-component":ContactComponent,
         "about-component":AboutComponent
     }
-})
+}).$mount('#app')

@@ -8,5 +8,6 @@
     <Folder Include="Scripts\" />
     <Folder Include="Scripts\Home\" />
     <Folder Include="wwwroot\bundle\" />
+    <Folder Include="Scripts\plugins\" />
   </ItemGroup>
 </Project>
