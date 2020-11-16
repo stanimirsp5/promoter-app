@@ -1,0 +1,19 @@
+﻿Create migration
+dotnet ef migrations add InitialCreate
+Add-Migration InitialCreate
+
+Create database and schema
+dotnet ef database update
+Update-Database
+
+Run project
+
+Rollback
+dotnet ef database update <previous migration>
+PM> Update-Database <previous-migration-name>
+
+Delete current migration
+dotnet ef migrations remove
+
+Migrations Overview https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli
+Reverse Engineering - https://docs.microsoft.com/en-us/ef/core/managing-schemas/scaffolding?tabs=dotnet-core-cli

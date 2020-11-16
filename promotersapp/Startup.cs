@@ -5,17 +5,25 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using promotersapp.Contexts;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace promotersapp
 {
+   
     public class Startup
     {
+        //private static UserDbContext _dbContext;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            //_dbContext = dbContext;
         }
 
         public IConfiguration Configuration { get; }
@@ -23,6 +31,14 @@ namespace promotersapp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Database connection string.
+            // TODO move in configuration file
+            var connection = @"Server=127.0.0.1,1433;Database=Promoter_DB_TEST;User=sa;Password=sql67ServerPassword;";
+
+            services.AddDbContext<PromoterDbContext>(options => options.UseSqlServer(connection));
+          // var test = _dbContext.Database.GetConnectionString();
+               
+
             services.AddControllersWithViews();
         }
 
