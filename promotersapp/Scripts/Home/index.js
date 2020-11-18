@@ -1,4 +1,5 @@
-﻿import Vue from 'vue';
+﻿import axios from 'axios';
+import Vue from 'vue';
 import vuetify from '../plugins/vuetify'
 
 import HomeComponent from './home.vue';
@@ -12,7 +13,8 @@ new Vue({
     vuetify,
     //el: "#app",
     data: {
-        message: "Test Vue test"
+        message: "Test Vue test",
+        axios: axios
     },
     components: {
         "home-component-home":HomeComponent,

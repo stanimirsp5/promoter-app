@@ -6,6 +6,11 @@
 </template>
 <script>
     export default {
-        name: "about-component"
+        name: "about-component",
+        methods: {
+            GetAxios() {
+                return this.$parent.$parent.axios;
+            }
+        }
     };
 </script>

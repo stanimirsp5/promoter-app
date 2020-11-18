@@ -75,6 +75,11 @@
 </template>
 <script>
     export default {
-        name: "home-componenst"
+        name: "home-componenst",
+        methods: {
+            GetAxios(){
+                return this.$parent.$parent.axios;
+            }
+        }
     };
 </script>
