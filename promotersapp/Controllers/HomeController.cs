@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using promotersapp.Contexts;
 using promotersapp.Models;
 
 namespace promotersapp.Controllers
@@ -12,10 +13,17 @@ namespace promotersapp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly PromoterDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(
+            ILogger<HomeController> logger,
+            PromoterDbContext context
+
+            )
         {
             _logger = logger;
+            _context = context;
+
         }
 
         public IActionResult Index()
@@ -24,7 +32,16 @@ namespace promotersapp.Controllers
         }
         public IActionResult Contact()
         {
+
             return View();
+        }
+
+        public IActionResult GetCities()
+        {
+            var test = _context.Cities.AsEnumerable();
+
+
+            return Json(test);
         }
         public IActionResult About()
         {
