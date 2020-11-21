@@ -11,7 +11,6 @@ const opts = {}
 
 new Vue({
     vuetify,
-    //el: "#app",
     data: {
         message: "Test Vue test",
         axios: axios
@@ -20,5 +19,9 @@ new Vue({
         "home-component-home":HomeComponent,
         "contact-component":ContactComponent,
         "about-component":AboutComponent
+    },
+    created() {
+       Vue.prototype.$axios = this.axios;
     }
+
 }).$mount('#app')
