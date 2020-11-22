@@ -10,6 +10,8 @@
     <Folder Include="wwwroot\bundle\" />
     <Folder Include="Scripts\plugins\" />
     <Folder Include="Contexts\" />
+    <Folder Include="Scripts\User\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />

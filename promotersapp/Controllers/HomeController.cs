@@ -25,7 +25,7 @@ namespace promotersapp.Controllers
             _context = context;
 
         }
-
+        
         public IActionResult Index()
         {
             return View();

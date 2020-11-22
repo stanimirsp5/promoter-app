@@ -6,6 +6,9 @@ import HomeComponent from './home.vue';
 import ContactComponent from './contactus.vue';
 import AboutComponent from './aboutus.vue';
 
+import PromoterComponent from '../User/Promoter.vue';
+
+
 const opts = {}
 
 
@@ -18,7 +21,10 @@ new Vue({
     components: {
         "home-component-home":HomeComponent,
         "contact-component":ContactComponent,
-        "about-component":AboutComponent
+        "about-component": AboutComponent,
+
+        "promoter-component": PromoterComponent,
+
     },
     created() {
        Vue.prototype.$axios = this.axios;
