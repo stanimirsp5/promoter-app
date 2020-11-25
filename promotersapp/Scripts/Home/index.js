@@ -5,6 +5,7 @@ import vuetify from '../plugins/vuetify'
 import HomeComponent from './home.vue';
 import ContactComponent from './contactus.vue';
 import AboutComponent from './aboutus.vue';
+import SearchComponent from './search.vue';
 
 import PromoterComponent from '../User/Promoter.vue';
 
@@ -22,6 +23,7 @@ new Vue({
         "home-component-home":HomeComponent,
         "contact-component":ContactComponent,
         "about-component": AboutComponent,
+        "search-component": SearchComponent,
 
         "promoter-component": PromoterComponent,
 
