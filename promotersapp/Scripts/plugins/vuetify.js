@@ -14,6 +14,7 @@ const opts = {
             light: {
                 primary: colors.blue.lighten1,
                 secondary: colors.blue.lighten5,
+                textColor: colors.blue.lighten1,
                 accent: '#8c9eff',
                 error: '#b71c1c',
             },

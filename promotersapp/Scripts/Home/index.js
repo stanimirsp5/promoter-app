@@ -2,7 +2,7 @@
 import Vue from 'vue';
 import vuetify from '../plugins/vuetify'
 
-import HomeComponent from './home.vue';
+import HomeComponent from './Home.vue';
 import ContactComponent from './contactus.vue';
 import AboutComponent from './aboutus.vue';
 
