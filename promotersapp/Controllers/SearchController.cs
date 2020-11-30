@@ -31,12 +31,19 @@ namespace promotersapp.Controllers
             return View();
         }
 
-        public IActionResult GetPromoters()
+        public IActionResult GetCities()
         {
-            var test = _context.Cities.AsEnumerable();
+            var cityList = _context.Cities.AsEnumerable();
 
 
-            return Json(test);
+            return Json(cityList);
+        }
+
+        public IActionResult FindPromoter(string city)
+        {
+            var promoterList = _context.Promoters.Single(promoter => promoter.City.CityName == city);
+            
+            return Json(promoterList);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
