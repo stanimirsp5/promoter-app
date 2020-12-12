@@ -161,8 +161,7 @@
   </v-main>
 </template>
 <script>
-import promoterCard from "./Search/promoterCard";
-import PromoterCard from "./Search/promoterCard.vue";
+import promoterCard from "./promoterCard";
 export default {
   name: "search-component",
   components: {
