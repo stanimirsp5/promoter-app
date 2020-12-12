@@ -2,7 +2,17 @@
   <v-row>
     <v-col>
       <!-- <h3>{{ promoter.firstName }}</h3> -->
+      <!-- <v-avatar color="red">
+          <span class="white--text headline"
+            >{{ promoter.firstName[0] }}{{ promoter.surname[0] }}</span
+          >
+        </v-avatar> -->
       <v-card>
+        <v-avatar tile color="red" class="pa-4">
+          <span class="white--text headline"
+            >{{ promoter.firstName[0] }}{{ promoter.surname[0] }}</span
+          >
+        </v-avatar>
         <v-card-title>
           {{ promoter.firstName }} {{ promoter.surname }}
         </v-card-title>

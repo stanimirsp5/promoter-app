@@ -39,8 +39,8 @@ namespace promotersapp.Controllers
             return Json(cityList);
         }
 
-        // GET: Search/FindPromoter?cityID={cityID}
-        public IActionResult FindPromoter(string cityID)
+        // GET: Search/GetPromoters?cityID={cityID}
+        public IActionResult GetPromoters(string cityID)
         {
 
             var promoters = from p in _context.Promoters
