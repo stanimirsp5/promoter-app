@@ -2,13 +2,7 @@
 import Vue from 'vue';
 import vuetify from '../plugins/vuetify'
 
-import HomeComponent from './Home.vue';
-import ContactComponent from './contactus.vue';
-import AboutComponent from './aboutus.vue';
-
-import PromoterComponent from '../User/Promoter.vue';
-
-
+import App from '../App.vue';
 const opts = {}
 
 
@@ -19,12 +13,7 @@ new Vue({
         axios: axios
     },
     components: {
-        "home-component-home":HomeComponent,
-        "contact-component":ContactComponent,
-        "about-component": AboutComponent,
-
-        "promoter-component": PromoterComponent,
-
+        "app-component": App,
     },
     created() {
        Vue.prototype.$axios = this.axios;

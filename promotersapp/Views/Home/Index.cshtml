@@ -3,11 +3,9 @@
     ViewData["Title"] = "Home Page";
 }
 
-    <div id="app">
-        <v-app>
-            <home-component-home></home-component-home>
-        </v-app>
-    </div>
+<div id="app">
+    <app-component component-name="home-component"></app-component>
+</div>
 
 @section scripts {
     <script src="@Url.Content("~/bundle/home.js")"></script>
