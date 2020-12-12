@@ -33,7 +33,17 @@
           <v-row>
             <!-- Select City: -->
             <v-col cols="12" md="3">
-              <v-select :items="cities" label="Изберете град"></v-select>
+              <v-select
+                v-model="citySelect"
+                :hint="`${citySelect.cityName}`"
+                :items="cities"
+                item-text="cityName"
+                item-value="id"
+                label="Select"
+                persistent-hint
+                return-object
+                single-line
+              ></v-select>
             </v-col>
             <v-spacer></v-spacer>
             <!-- Select date: -->
@@ -124,7 +134,9 @@
             <v-spacer></v-spacer>
             <!-- Submit Query: -->
             <v-col cols="12" md="3">
-              <v-btn depressed block color="primary"> Търси </v-btn>
+              <v-btn depressed block color="primary" v-on:click="findPromoter">
+                Търси
+              </v-btn>
             </v-col>
           </v-row>
           <!-- Additional Filters -->
@@ -165,12 +177,27 @@
           </v-row>
         </v-sheet>
       </v-container>
+
+      <v-container v-if="promotersList">
+        <h4 class="text--secondary">Намерени:</h4>
+        <template v-for="promoter in promotersList">
+          <promoter-card
+            :promoter="promoter"
+            :key="promoter.id"
+          ></promoter-card>
+        </template>
+      </v-container>
     </v-main>
   </v-main>
 </template>
 <script>
+import promoterCard from "./Search/promoterCard";
+import PromoterCard from "./Search/promoterCard.vue";
 export default {
   name: "search-component",
+  components: {
+    "promoter-card": promoterCard,
+  },
   data: () => ({
     // Form Data:
     timeFromHR: null,
@@ -184,8 +211,10 @@ export default {
     healthInsurance: false,
     personalCar: false,
     languageSelect: [],
+    promotersList: null,
     cities: [],
-    languages: ['Английски', 'Немски', 'Испански', 'Руски'],
+    citySelect: { cityName: "Батановци", id: 15 },
+    languages: ["Английски", "Немски", "Испански", "Руски"],
   }),
   created() {
     this.getCities();
@@ -198,7 +227,21 @@ export default {
       this.$axios
         .get("/Search/GetCities", null)
         .then((res) => {
-          this.cities = res.data.map((city) => city.cityName);
+          this.cities = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    findPromoter() {
+      this.promotersList = [];
+      var parsedobj = JSON.parse(JSON.stringify(this.citySelect));
+      this.$axios
+        .get("/Search/FindPromoter", { params: { cityID: parsedobj.id } })
+        .then((res) => {
+          this.promotersList = res.data.map((p) =>
+            Object.assign(p, { city: parsedobj.cityName })
+          );
         })
         .catch((err) => {
           console.log(err);

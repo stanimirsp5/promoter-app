@@ -39,11 +39,22 @@ namespace promotersapp.Controllers
             return Json(cityList);
         }
 
-        public IActionResult FindPromoter(string city)
+        // GET: Search/FindPromoter?cityID={cityID}
+        public IActionResult FindPromoter(string cityID)
         {
-            var promoterList = _context.Promoters.Single(promoter => promoter.City.CityName == city);
+
+            var promoters = from p in _context.Promoters
+                            select p;
+
+            if (!String.IsNullOrEmpty(cityID)) {
+                int id;
+                int.TryParse(cityID, out id);
+                promoters = promoters.Where(p => p.CityId == id);
+            }
+
             
-            return Json(promoterList);
+
+            return Json(promoters.ToList());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
