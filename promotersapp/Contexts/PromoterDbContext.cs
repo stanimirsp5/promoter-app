@@ -9,9 +9,6 @@ namespace promotersapp.Contexts
 {
     public partial class PromoterDbContext : DbContext
     {
-        public PromoterDbContext()
-        {
-        }
 
         public PromoterDbContext(DbContextOptions<PromoterDbContext> options)
             : base(options)

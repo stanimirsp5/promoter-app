@@ -4,28 +4,31 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using promotersapp.Contexts;
 using promotersapp.Models;
+using promotersapp.Repositories;
 
 namespace promotersapp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly PromoterDbContext _context;
+        private readonly IRepository<City> _cityRepository;
 
         public HomeController(
             ILogger<HomeController> logger,
-            PromoterDbContext context
+            PromoterDbContext context,
+           IRepository<City> cityRepository
 
             )
         {
             _logger = logger;
-            _context = context;
+            _cityRepository = cityRepository;
 
         }
-        
+
         public IActionResult Index()
         {
             return View();
@@ -36,12 +39,19 @@ namespace promotersapp.Controllers
             return View();
         }
 
+        public IActionResult GetOne(int id)
+        {
+            var city = _cityRepository.GetOne(id);
+
+
+            return Json(city);
+        }
         public IActionResult GetCities()
         {
-            var test = _context.Cities.AsEnumerable();
 
+            var getAll = _cityRepository.GetAll();
 
-            return Json(test);
+            return Json(getAll);
         }
         public IActionResult About()
         {
