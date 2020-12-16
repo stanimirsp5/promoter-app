@@ -1,6 +1,6 @@
 <template>
     <div id="contact">
-        <h1>Contact hhehe-test Vue</h1>
+        <h1>Contact test hhehe-test Vue</h1>
 
         <v-btn class="mx-2"
                fab
@@ -12,9 +12,17 @@
                 mdi-android
             </v-icon>
         </v-btn>
-
-
         <div>{{allCities}}</div>
+
+        <v-btn class="mx-2"
+               fab
+               dark
+               large
+               @click="getOneCity"
+               color="green">
+            get one city
+        </v-btn>
+        <div>{{city}}</div>
 
     </div>
 
@@ -23,7 +31,8 @@
     export default {
         name: "contact-component",
         data: () => ({
-            allCities: []
+            allCities: [],
+            city: null
         }),
 
         methods: {
@@ -35,7 +44,16 @@
                     .catch(err => {
                         console.log(err)
                     })
-            }
+            },
+            getOneCity() {
+                this.$axios.get('/Home/GetOne', { params: { id: 1 } })
+                    .then(res => {
+                        this.city = res.data
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            },
         }
     };
 </script>

@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using promotersapp.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using promotersapp.Repositories;
 
 namespace promotersapp
 {
@@ -36,8 +37,8 @@ namespace promotersapp
             var connection = @"Server=127.0.0.1,1433;Database=Promoter_DB_TEST;User=sa;Password=sql67ServerPassword;";
 
             services.AddDbContext<PromoterDbContext>(options => options.UseSqlServer(connection));
-          // var test = _dbContext.Database.GetConnectionString();
-               
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             services.AddControllersWithViews();
         }
