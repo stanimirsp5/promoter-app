@@ -10,6 +10,7 @@
 
 <script>
 import HomeComponent from "./Home/Home";
+import SearchComponent from "./Home/Search/search";
 import PromoterComponent from "./User/Promoter.vue";
 import LoginComponent from "./Login/Login.vue";
 
@@ -23,6 +24,7 @@ export default {
   name: "price",
   components: {
     "home-component": HomeComponent,
+    "search-component": SearchComponent,
     "promoter-component": PromoterComponent,
     "login-component": LoginComponent,
 

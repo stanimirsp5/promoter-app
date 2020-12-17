@@ -278,5 +278,6 @@ __pycache__/
 dist/
 npm-debug.log
 yarn-error.log
+promotersapp/wwwroot/
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore,vuejs
