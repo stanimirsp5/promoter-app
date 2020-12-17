@@ -189,9 +189,6 @@ export default {
     this.getCities();
   },
   methods: {
-    GetAxios() {
-      return this.$parent.$parent.axios;
-    },
     getCities() {
       this.$axios
         .get("/Search/GetCities", null)

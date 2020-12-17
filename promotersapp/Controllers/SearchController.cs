@@ -52,8 +52,6 @@ namespace promotersapp.Controllers
                 promoters = promoters.Where(p => p.CityId == id);
             }
 
-            
-
             return Json(promoters.ToList());
         }
 

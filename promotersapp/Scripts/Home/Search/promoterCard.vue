@@ -17,7 +17,7 @@
           {{ promoter.firstName }} {{ promoter.surname }}
         </v-card-title>
         <v-card-subtitle>
-          Пол, {{ _calculateAge(new Date(promoter.dateOfBirth)) }} Години
+          Пол, {{ calculateAge(new Date(promoter.dateOfBirth)) }} Години
         </v-card-subtitle>
         <v-card-text>
           <v-row>
@@ -53,7 +53,7 @@ export default {
     showDetails() {
       console.info("Show details");
     },
-    _calculateAge(birthday) {
+    calculateAge(birthday) {
       var ageDifMs = Date.now() - birthday.getTime();
       var ageDate = new Date(ageDifMs); // miliseconds from epoch
       return Math.abs(ageDate.getUTCFullYear() - 1970);
