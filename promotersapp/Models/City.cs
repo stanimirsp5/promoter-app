@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace promotersapp.Models
 {
-    public partial class City
+    public partial class City : BaseEntity
     {
         public City()
         {
@@ -13,7 +13,6 @@ namespace promotersapp.Models
             Promoters = new HashSet<Promoter>();
         }
 
-        public int Id { get; set; }
         public string CityName { get; set; }
 
         public virtual ICollection<Firm> Firms { get; set; }

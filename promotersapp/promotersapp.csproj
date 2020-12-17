@@ -13,6 +13,8 @@
     <Folder Include="Contexts\" />
     <Folder Include="Scripts\User\" />
     <Folder Include="Views\User\" />
+    <Folder Include="Services\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
