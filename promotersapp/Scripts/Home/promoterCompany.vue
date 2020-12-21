@@ -68,7 +68,7 @@
 </template>
 <script>
 export default {
-  name: "home-componenst",
+  name: "promoter-component",
   components: {},
   data() {
     return {

@@ -34,7 +34,7 @@ import companies from "./companies.vue";
 import price from "./price.vue";
 
 export default {
-  name: "home-componenst",
+  name: "home-component",
   components: {
     "find-promoters": findPromoters,
     "promoter-company": promoterCompany,
