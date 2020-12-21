@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Linq;
 using promotersapp.Models;
 
 namespace promotersapp.Repositories
@@ -7,7 +6,7 @@ namespace promotersapp.Repositories
     public interface IRepository<T> where T : BaseEntity
 
     {
-        IEnumerable<T> GetAll();
+        IQueryable<T> GetAll();
         T GetOne(int id);
         void Create(T entity);
         void Update(T entity);

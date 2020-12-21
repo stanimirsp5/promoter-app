@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace promotersapp.Models
 {
-    public partial class Firm
+    public partial class Firm : BaseEntity
     {
         public Firm()
         {
@@ -14,7 +14,6 @@ namespace promotersapp.Models
             Payments = new HashSet<Payment>();
         }
 
-        public int Id { get; set; }
         public int UserId { get; set; }
         public int CityId { get; set; }
         public string Name { get; set; }

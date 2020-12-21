@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace promotersapp.Models
 {
-    public partial class User
+    public partial class User : BaseEntity
     {
         public User()
         {
@@ -14,7 +14,6 @@ namespace promotersapp.Models
             Promoters = new HashSet<Promoter>();
         }
 
-        public int Id { get; set; }
         public int UserTypeId { get; set; }
         public string PasswordHash { get; set; }
         public string Salt { get; set; }

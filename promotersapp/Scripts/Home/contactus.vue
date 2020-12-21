@@ -24,6 +24,14 @@
         </v-btn>
         <div>{{city}}</div>
 
+        <v-btn class="mx-2"
+               dark
+               large
+               @click="getPromoters"
+               color="blue">
+            promoters
+        </v-btn>
+        <div>{{promoters}}</div>
     </div>
 
 </template>
@@ -32,6 +40,7 @@
         name: "contact-component",
         data: () => ({
             allCities: [],
+            promoters: [],
             city: null
         }),
 
@@ -49,6 +58,15 @@
                 this.$axios.get('/Home/GetOne', { params: { id: 1 } })
                     .then(res => {
                         this.city = res.data
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            },
+            getPromoters() {
+                this.$axios.get('/Home/GetPromoters')
+                    .then(res => {
+                        this.promoters = res.data
                     })
                     .catch(err => {
                         console.log(err)

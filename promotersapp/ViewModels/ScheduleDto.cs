@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using promotersapp.Models;
 
-#nullable disable
-
-namespace promotersapp.Models
+namespace promotersapp.ViewModels
 {
-    public partial class Schedule : BaseEntity
+    public class ScheduleDto
     {
+        public int Id { get; set; }
         public int PromoterId { get; set; }
         public int WeekDayId { get; set; }
         public DateTime FreeFrom { get; set; }
@@ -14,7 +13,7 @@ namespace promotersapp.Models
         public DateTime Date { get; set; }
         public bool? IsStatic { get; set; }
 
-        public virtual Promoter Promoter { get; set; }
-        public virtual WeekDay PromoterNavigation { get; set; }
+        //public Promoter Promoter { get; set; }
+        //public WeekDay PromoterNavigation { get; set; }
     }
 }

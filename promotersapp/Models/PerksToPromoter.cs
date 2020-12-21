@@ -5,9 +5,8 @@ using System.Collections.Generic;
 
 namespace promotersapp.Models
 {
-    public partial class PerksToPromoter
+    public partial class PerksToPromoter : BaseEntity
     {
-        public int Id { get; set; }
         public int PromoterId { get; set; }
         public int PerkId { get; set; }
 

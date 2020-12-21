@@ -5,9 +5,8 @@ using System.Collections.Generic;
 
 namespace promotersapp.Models
 {
-    public partial class PersonalDetail
+    public partial class PersonalDetail : BaseEntity
     {
-        public int Id { get; set; }
         public int PromoterId { get; set; }
         public string EyeColor { get; set; }
         public int? Height { get; set; }

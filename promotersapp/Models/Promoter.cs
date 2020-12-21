@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace promotersapp.Models
 {
-    public partial class Promoter
+    public partial class Promoter : BaseEntity
     {
         public Promoter()
         {
@@ -15,7 +15,6 @@ namespace promotersapp.Models
             Schedules = new HashSet<Schedule>();
         }
 
-        public int Id { get; set; }
         public int UserId { get; set; }
         public int CityId { get; set; }
         public string FirstName { get; set; }

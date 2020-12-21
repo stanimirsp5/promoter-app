@@ -5,14 +5,13 @@ using System.Collections.Generic;
 
 namespace promotersapp.Models
 {
-    public partial class Perk
+    public partial class Perk : BaseEntity
     {
         public Perk()
         {
             PerksToPromoters = new HashSet<PerksToPromoter>();
         }
 
-        public int Id { get; set; }
         public string PerkName { get; set; }
 
         public virtual ICollection<PerksToPromoter> PerksToPromoters { get; set; }

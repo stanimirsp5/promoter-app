@@ -46,9 +46,9 @@ namespace promotersapp.Repositories
             return entities.SingleOrDefault(el => el.Id == id);
         }
 
-        public IEnumerable<T> GetAll()
+        public IQueryable<T> GetAll()
         {
-            return entities.AsEnumerable();
+            return entities.AsQueryable();
         }
 
         public void Update(T entity)

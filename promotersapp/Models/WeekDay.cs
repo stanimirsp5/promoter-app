@@ -5,14 +5,13 @@ using System.Collections.Generic;
 
 namespace promotersapp.Models
 {
-    public partial class WeekDay
+    public partial class WeekDay : BaseEntity
     {
         public WeekDay()
         {
             Schedules = new HashSet<Schedule>();
         }
 
-        public int Id { get; set; }
         public string Weekday1 { get; set; }
 
         public virtual ICollection<Schedule> Schedules { get; set; }

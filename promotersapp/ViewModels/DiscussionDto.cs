@@ -1,22 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using promotersapp.Models;
 
-#nullable disable
-
-namespace promotersapp.Models
+namespace promotersapp.ViewModels
 {
-    public partial class Discussion : BaseEntity
+    public class DiscussionDto
     {
-        public Discussion()
-        {
-            Messages = new HashSet<Message>();
-        }
-
+        public int Id { get; set; }
         public int PromoterId { get; set; }
         public int FirmId { get; set; }
 
         public virtual Firm Firm { get; set; }
-        public virtual Promoter Promoter { get; set; }
+        //public virtual Promoter Promoter { get; set; }
         public virtual ICollection<Message> Messages { get; set; }
     }
 }
