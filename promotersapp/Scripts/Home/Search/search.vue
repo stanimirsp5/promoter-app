@@ -1,7 +1,7 @@
 <template>
-  <v-main class="lighten-3">
+  <v-main class="grey lighten-4">
     <v-container>
-      <v-sheet>
+      <v-sheet elevation="2" class="pa-4">
         <v-row>
           <v-col cols="12">
             <h2 class="text--primary">Търсене за:</h2>
@@ -154,9 +154,14 @@
 
     <v-container v-if="promotersList">
       <h4 class="text--secondary">Намерени:</h4>
-      <template v-for="promoter in promotersList">
-        <promoter-card :promoter="promoter" :key="promoter.id"></promoter-card>
-      </template>
+      <v-expansion-panels elevation="0">
+        <template v-for="promoter in promotersList">
+          <promoter-card
+            :promoter="promoter"
+            :key="promoter.id"
+          ></promoter-card>
+        </template>
+      </v-expansion-panels>
     </v-container>
   </v-main>
 </template>
@@ -207,9 +212,7 @@ export default {
           params: { cityID: parsedobj.id },
         })
         .then((res) => {
-          this.promotersList = res.data.map((p) =>
-            Object.assign(p, { city: parsedobj.cityName })
-          );
+          this.promotersList = res.data;
         })
         .catch((err) => {
           console.log(err);
