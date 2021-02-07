@@ -191,7 +191,7 @@ export default {
   methods: {
     getCities() {
       this.$axios
-        .get("/Search/GetCities", null)
+        .get("/City/GetCities", null)
         .then((res) => {
           this.cities = res.data;
         })
@@ -203,7 +203,9 @@ export default {
       this.promotersList = [];
       var parsedobj = JSON.parse(JSON.stringify(this.citySelect));
       this.$axios
-        .get("/Search/GetPromoters", { params: { cityID: parsedobj.id } })
+        .get("/Promoter/GetPromotersByCity", {
+          params: { cityID: parsedobj.id },
+        })
         .then((res) => {
           this.promotersList = res.data.map((p) =>
             Object.assign(p, { city: parsedobj.cityName })

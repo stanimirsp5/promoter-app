@@ -37,6 +37,9 @@ namespace promotersapp.ViewModels
 
             CreateMap<PerksToPromoter, PerksToPromoterDto>();
             CreateMap<PerksToPromoterDto, PerksToPromoter>();
+
+            CreateMap<City, CityDto>();
+            CreateMap<CityDto, City>();
         }
     }
 }
