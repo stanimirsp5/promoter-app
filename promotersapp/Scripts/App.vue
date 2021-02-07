@@ -12,7 +12,9 @@
 import HomeComponent from "./Home/Home";
 import SearchComponent from "./Home/Search/search";
 import PromoterComponent from "./User/Promoter.vue";
-import LoginComponent from "./Login/Login.vue";
+import LoginComponent from "./Account/Login.vue";
+import RegisterComponent from "./Account/Register.vue";
+import PromoterDashboard from "./User/PromoterDashboard.vue";
 
 import ContactComponent from "./Home/contactus.vue";
 import AboutComponent from "./Home/aboutus.vue";
@@ -27,6 +29,8 @@ export default {
     "search-component": SearchComponent,
     "promoter-component": PromoterComponent,
     "login-component": LoginComponent,
+    "register-component": RegisterComponent,
+    "dashboard-promoter-component": PromoterDashboard,
 
     "contact-component": ContactComponent,
     "about-component": AboutComponent,
