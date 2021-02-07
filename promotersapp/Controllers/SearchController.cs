@@ -2,28 +2,35 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using promotersapp.Contexts;
 using promotersapp.Models;
-
+using promotersapp.Repositories;
+using promotersapp.ViewModels;
+using AutoMapper;
 namespace promotersapp.Controllers
 {
     public class SearchController : Controller
     {
-        private readonly ILogger<SearchController> _logger;
-        private readonly PromoterDbContext _context;
+        private readonly ILogger<HomeController> _logger;
+        private readonly IRepository<City> _cityRepository;
+        private readonly IRepository<Promoter> _promoterRepository;
+        private readonly IMapper _mapper;
 
         public SearchController(
-            ILogger<SearchController> logger,
-            PromoterDbContext context
-
-            )
-        {
+            ILogger<HomeController> logger,
+            IRepository<City> cityRepository,
+            IRepository<Promoter> promoterRepository,
+            IMapper mapper
+        ){
             _logger = logger;
-            _context = context;
-
+            _promoterRepository = promoterRepository;
+            _cityRepository = cityRepository;
+            _mapper = mapper;
         }
         
         public IActionResult Index()
@@ -33,26 +40,24 @@ namespace promotersapp.Controllers
 
         public IActionResult GetCities()
         {
-            var cityList = _context.Cities.AsEnumerable();
+            var getAll = _cityRepository.GetAll();
 
-
-            return Json(cityList);
+            return Json(getAll);
         }
 
         // GET: Search/GetPromoters?cityID={cityID}
         public IActionResult GetPromoters(string cityID)
         {
+            var promoters = _promoterRepository.GetAll()
+                .Include(p => p.Schedules)
+                .Include(p => p.City)
+                .Include(p => p.Discussions)
+                .Include(p => p.PerksToPromoters).ThenInclude(pe => pe.Perk)
+                .Include(p => p.PersonalDetails)
+                .Include(p => p.User)
+                .Select(p => _mapper.Map<PromoterDto>(p)).ToList();
 
-            var promoters = from p in _context.Promoters
-                            select p;
-
-            if (!String.IsNullOrEmpty(cityID)) {
-                int id;
-                int.TryParse(cityID, out id);
-                promoters = promoters.Where(p => p.CityId == id);
-            }
-
-            return Json(promoters.ToList());
+            return Json(promoters);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
