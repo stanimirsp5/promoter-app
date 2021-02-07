@@ -5,14 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Scripts\" />
     <Folder Include="Scripts\Home\" />
     <Folder Include="Views\Search\" />
     <Folder Include="wwwroot\bundle\" />
     <Folder Include="Scripts\plugins\" />
     <Folder Include="Contexts\" />
-    <Folder Include="Scripts\User\" />
-    <Folder Include="Views\User\" />
     <Folder Include="Services\" />
     <Folder Include="Repositories\" />
     <Folder Include="ViewModels\" />
