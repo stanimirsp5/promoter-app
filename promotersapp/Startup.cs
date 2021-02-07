@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using promotersapp.Contexts;
 using promotersapp.Repositories;
 using AutoMapper;
+using promotersapp.Services;
 
 namespace promotersapp
 {
@@ -37,6 +38,8 @@ namespace promotersapp
             services.AddDbContext<PromoterDbContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<ICityService, CityService>();
+            services.AddScoped<IPromoterService, PromoterService>();
 
             services.AddControllersWithViews();
            
