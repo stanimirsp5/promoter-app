@@ -25,7 +25,7 @@ namespace promotersapp.Controllers
         public IActionResult GetPromotersWithAllProperties()
         {
             var promoters = _promoterService.GetWithAllProperties();
-            var promotersDto = promoters.Select(p => _mapper.Map<PromoterDto>(p)).ToList();
+            var promotersDto = promoters.Select(p => _mapper.Map<PromoterDto>(p));
 
             return Json(promotersDto);
         }
@@ -33,7 +33,7 @@ namespace promotersapp.Controllers
         public IActionResult GetPromotersByCity(int cityId)
         {
             var promoters = _promoterService.GetByCity(cityId);
-            var promotersDto = promoters.Select(p => _mapper.Map<PromoterDto>(p)).ToList();
+            var promotersDto = promoters.Select(p => _mapper.Map<PromoterDto>(p));
 
             return Json(promotersDto);
         }

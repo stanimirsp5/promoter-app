@@ -10,7 +10,9 @@ namespace promotersapp.Services
     {
         private readonly IRepository<Promoter> _promoterRepository;
 
-        public PromoterService(IRepository<Promoter> promoterRepository)
+        public PromoterService(
+            IRepository<Promoter> promoterRepository
+        )
         {
             _promoterRepository = promoterRepository;
         }
@@ -32,7 +34,7 @@ namespace promotersapp.Services
         public IEnumerable<Promoter> GetByCity(int cityId)
         {
 
-            var promoters = _promoterRepository.GetAll().Where(p => p.CityId == cityId);
+            var promoters = _promoterRepository.GetAll().Where(p => p.CityId == cityId).ToList();
 
             return promoters;
         }

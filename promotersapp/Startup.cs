@@ -38,8 +38,10 @@ namespace promotersapp
             services.AddDbContext<PromoterDbContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
             services.AddScoped<ICityService, CityService>();
             services.AddScoped<IPromoterService, PromoterService>();
+            services.AddScoped<IAccountService, AccountService>();
 
             services.AddControllersWithViews();
            
