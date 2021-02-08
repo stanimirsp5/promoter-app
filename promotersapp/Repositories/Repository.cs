@@ -30,6 +30,7 @@ namespace promotersapp.Repositories
                 throw new ArgumentNullException("entity");
             }
             entities.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Delete(T entity)

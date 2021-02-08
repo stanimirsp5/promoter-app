@@ -6,14 +6,18 @@ namespace promotersapp.ViewModels
 {
     public class UserDto
     {
-        public int UserTypeId { get; set; }
-        public string Email { get; set; }
-        public bool EmailConfirmed { get; set; }
-        public int FailedLogins { get; set; }
+       
+        //public bool EmailConfirmed { get; set; } // needed?
+        //public int FailedLogins { get; set; }// needed?
 
-        public virtual UserType UserType { get; set; }
-        public virtual ICollection<Firm> Firms { get; set; }
-        public virtual ICollection<Picture> Pictures { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public int UserTypeId { get; set; }
+
+        //public virtual UserType UserType { get; set; }
+        //public virtual ICollection<Firm> Firms { get; set; }
+        //public virtual ICollection<Picture> Pictures { get; set; }
         //public virtual ICollection<Promoter> Promoters { get; set; }
     }
 }
